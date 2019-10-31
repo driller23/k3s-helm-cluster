@@ -46,3 +46,32 @@ ansible-playbook site.yml
 ## Kubeconfig
 
 To get access to your **Kubernetes** cluster just scp debian@master_pi:~/kube/config ~/.kube/config
+
+## K3s install helm
+
+####download helm
+
+```curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > install-helm.sh```
+
+####Make instalation script executable
+
+```chmod u+x install-helm.sh```
+
+####Install helm
+
+```./install-helm.sh```
+
+#### cp /home/devops/.kube/config ~/.kube/config
+
+#Create tiller service account
+```kubectl -n kube-system create serviceaccount tiller```
+
+####Create cluster role binding for tiller
+
+```kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller```
+
+####Initialize tiller
+
+```helm init --service-account tiller```
+
+
