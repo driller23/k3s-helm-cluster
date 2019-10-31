@@ -74,4 +74,22 @@ To get access to your **Kubernetes** cluster just scp debian@master_pi:~/kube/co
 
 ```helm init --service-account tiller```
 
+## install longhorn
+
+#### install iscsi
+```yum install iscsi-initiator-utils -y```
+
+#### check the node pre - req
+```curl -sSfL https://raw.githubusercontent.com/rancher/longhorn/master/scripts/environment_check.sh | bash```
+
+#### clone lognhorn 
+
+```git clone https://github.com/longhorn/longhorn.git```
+
+#### install longhorn 
+
+```helm install ./longhorn/chart --name longhorn --namespace longhorn-system```
+
+#### web ui
+
 
