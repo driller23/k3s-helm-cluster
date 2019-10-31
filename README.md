@@ -92,4 +92,7 @@ To get access to your **Kubernetes** cluster just scp debian@master_pi:~/kube/co
 
 #### web ui
 
+kubectl -n longhorn-system get svc
+
+#### http://<ip>:<port>
 
